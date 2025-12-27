@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>NAWAN - Banti Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --table-color: #064e3b;
+        --table-border: #3f311c;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #010410;
+        font-family: 'Montserrat', sans-serif;
+        overflow: hidden;
+        height: 100dvh;
+        width: 100vw;
+      }
+      .font-cinzel { font-family: 'Cinzel', serif; }
+      
+      .scene {
+        perspective: 1500px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .table-3d {
+        transform-style: preserve-3d;
+        transform: rotateX(8deg);
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .table-light {
+        background: radial-gradient(circle at center, rgba(52, 211, 153, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+
+      @keyframes card-entry {
+        from { 
+          transform: translateY(-50px);
+          opacity: 0; 
+        }
+        to { 
+          transform: var(--final-transform);
+          opacity: 1; 
+        }
+      }
+
+      .animate-card {
+        animation: card-entry 0.5s ease-out forwards;
+      }
+
+      /* Landscape and small device scaling */
+      @media (max-height: 500px) {
+        .table-3d { transform: rotateX(5deg) scale(0.7); }
+      }
+      @media (max-height: 700px) and (min-height: 501px) {
+        .table-3d { transform: rotateX(5deg) scale(0.85); }
+      }
+      @media (min-width: 1024px) {
+        .table-3d { transform: rotateX(10deg) scale(1.1); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
